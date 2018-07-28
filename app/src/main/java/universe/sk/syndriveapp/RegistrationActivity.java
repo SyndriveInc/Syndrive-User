@@ -126,11 +126,15 @@ public class RegistrationActivity extends AppCompatActivity {
         return result;
     }
     private void adduser(){
+//        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+//        DatabaseReference databaseusers= firebaseDatabase.getReference(firebaseAuth.getUid());
+//        Userinfo user;
+//        user = new Userinfo(name,email,date,bloodgrp,emname1,emnum1,emname2,emnum2,emname3,emnum3);
+//        databaseusers.setValue(user);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference databaseusers= firebaseDatabase.getReference(firebaseAuth.getUid());
-        Userinfo user;
-        user = new Userinfo(name,email,date,bloodgrp,emname1,emnum1,emname2,emnum2,emname3,emnum3);
-        databaseusers.setValue(user);
+        DatabaseReference databaseusers = firebaseDatabase.getReference("users");
+        Userinfo userinfo = new Userinfo(name,date,email,bloodgrp,emname1,emnum1,emname2,emnum2,emname3,emnum3);
+        databaseusers.child(firebaseAuth.getUid()).setValue(userinfo);
 
     }
 }

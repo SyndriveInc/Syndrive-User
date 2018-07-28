@@ -90,7 +90,7 @@ public class EditProfileActivity extends AppCompatActivity {
         storageReference = firebaseStorage.getReference();
         setProfilePic();
 
-        final DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        final DatabaseReference databaseReference = firebaseDatabase.getReference("users").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
