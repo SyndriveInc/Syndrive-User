@@ -11,16 +11,20 @@
          location permissions for the 'MyLocation' functionality. 
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/> <!--zoom -->
-    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!--current location -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- zoom -->
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" /> <!-- current location -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!--<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />-->
-    <!--<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+    <!-- <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> -->
+    <!-- <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
-    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.accelerometer"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.sensor.gyroscope"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -30,24 +34,23 @@
         android:roundIcon="@mipmap/icon1"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".NavigationActivity"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".RegistrationActivity" />
-        <activity android:name=".EditProfileActivity"
+        <activity
+            android:name=".EditProfileActivity"
             android:windowSoftInputMode="stateHidden">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity" />
         </activity>
         <!--
@@ -67,22 +70,22 @@
             android:label="@string/title_activity_maps" />
         <activity android:name=".PasswordActivity" />
         <activity android:name=".AlertActivity" />
-
-        <activity android:name=".SettingsActivity" >
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
+        <activity android:name=".SettingsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity" />
         </activity>
-
         <activity android:name=".AddContacts">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RegistrationActivity" />
         </activity>
-
-
         <activity android:name=".AboutActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".NavigationActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationActivity" />
         </activity>
+        <activity android:name=".SendSMSActivity"></activity>
     </application>
 
 </manifest>
