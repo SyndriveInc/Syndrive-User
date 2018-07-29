@@ -133,7 +133,7 @@ public class RegistrationActivity extends AppCompatActivity {
 //        databaseusers.setValue(user);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseusers = firebaseDatabase.getReference("users");
-        Userinfo userinfo = new Userinfo(name,date,email,bloodgrp,emname1,emnum1,emname2,emnum2,emname3,emnum3);
+        Userinfo userinfo = new Userinfo(name,email,date,bloodgrp,emname1,emnum1,emname2,emnum2,emname3,emnum3);
         databaseusers.child(firebaseAuth.getUid()).setValue(userinfo);
 
     }
