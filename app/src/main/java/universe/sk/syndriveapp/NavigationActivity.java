@@ -36,6 +36,9 @@ public class NavigationActivity extends AppCompatActivity
     private FirebaseDatabase firebaseDatabase;
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
+    private ServiceHandler mServiceHandler;
+//    private boolean isDriving = false;
+    private static boolean isTracking;
 
     ImageView imageViewNavPic;
     TextView tvNavName, tvNavEmail;
@@ -46,6 +49,9 @@ public class NavigationActivity extends AppCompatActivity
         setContentView(R.layout.activity_navigation);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mServiceHandler = new ServiceHandler(this);
+        isTracking = false;
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setIcon(R.mipmap.icon1);
@@ -123,7 +129,8 @@ public class NavigationActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.navigation, menu);
-        return true;
+        //return true;
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
@@ -134,8 +141,21 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.toggle_driving) {
+            if(isTracking) { //Tracking mode is true
+                mServiceHandler.doUnbindService();
+                item.setTitle(R.string.toggle_start_driving);
+//                Toast.makeText(this, "Driving mode on", Toast.LENGTH_SHORT).show();
+                isTracking = false; //Tracking mode is changed to false
+
+            }
+            else {
+                mServiceHandler.doBindService();
+                item.setTitle(R.string.toggle_stop_driving);
+//                Toast.makeText(this, "Driving mode off", Toast.LENGTH_SHORT).show();
+                isTracking = true;
+
+            }
         }
 
         return super.onOptionsItemSelected(item);

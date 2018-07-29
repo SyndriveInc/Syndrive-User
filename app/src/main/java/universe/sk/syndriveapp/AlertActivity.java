@@ -1,5 +1,6 @@
 package universe.sk.syndriveapp;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.speech.tts.TextToSpeech;
@@ -64,6 +65,7 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 fabDismiss.setEnabled(false);
                 fabSend.setEnabled(false);
                 speakOut();
+                startActivity(new Intent(AlertActivity.this,SendSMSActivity.class));
             }
         }.start();
 
@@ -75,8 +77,8 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 tvTime.setTextColor(getResources().getColor(R.color.green));
                 fabSend.setEnabled(false);
                 fabDismiss.setEnabled(false);
-
                 speakOut();
+                startActivity(new Intent(AlertActivity.this,SendSMSActivity.class));
             }
         }); //end of Send button
 

@@ -83,5 +83,8 @@
         <item>30</item>
 
     </string-array>
+    <string name="toggle_start_driving">Start Driving</string>
+    <string name="toggle_stop_driving">Stop Driving</string>
+    <string name="string">\@string/toggle_start_driving</string>
 
 </resources>
