@@ -21,6 +21,7 @@ public class SendSMSActivity extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
+    private GPSTracker mGPSTracker;
 
     String etName, etName1, etNum1, etName2, etNum2, etName3, etNum3;
 
@@ -28,6 +29,8 @@ public class SendSMSActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_sms);
+
+        mGPSTracker = new GPSTracker(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -49,6 +52,7 @@ public class SendSMSActivity extends AppCompatActivity {
                 etNum1 = userinfo.getCnum1();
                 etNum2 = userinfo.getCnum2();
                 etNum3 = userinfo.getCnum3();
+                sendSMSMessage();
             }
 
             @Override
@@ -68,7 +72,7 @@ public class SendSMSActivity extends AppCompatActivity {
     }
 
     private String constructMessage(){
-        String message = "Alert! It appears that" + etName + "may have been in an accident." + etName + " has chosen you as their emergency contact. " + etName +"'s current location is ";
+        String message = "Alert! It appears that " + etName + " may have been in an accident. " + etName + " has chosen you as their emergency contact. ";
         return message;
     }
 }
