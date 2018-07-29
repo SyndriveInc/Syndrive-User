@@ -53,13 +53,15 @@ public class MainActivity extends AppCompatActivity {
 
         if ((ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_PHONE_STATE)
                 !=PackageManager.PERMISSION_GRANTED)||
+                (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.SEND_SMS)
+                        != PackageManager.PERMISSION_GRANTED)||
                 (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)
                 !=PackageManager.PERMISSION_GRANTED)||
                 (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)
                         !=PackageManager.PERMISSION_GRANTED)) {
                     ActivityCompat.requestPermissions(MainActivity.this,
                             new String[] {Manifest.permission.READ_PHONE_STATE, Manifest.permission.ACCESS_FINE_LOCATION,
-                                    Manifest.permission.ACCESS_COARSE_LOCATION},
+                                    Manifest.permission.ACCESS_COARSE_LOCATION,Manifest.permission.SEND_SMS},
                             REQUEST_PERMISSIONS);
         }
 
