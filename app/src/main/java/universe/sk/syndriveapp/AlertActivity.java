@@ -65,7 +65,11 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 fabDismiss.setEnabled(false);
                 fabSend.setEnabled(false);
                 speakOut();
-                startActivity(new Intent(AlertActivity.this,NavigationActivity.class));
+                Intent mIntent = new Intent();
+                mIntent.setClass(AlertActivity.this, SendSMSActivity.class);
+                mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(mIntent);
+                //startActivity(new Intent(AlertActivity.this,NavigationActivity.class));
             }
         }.start();
 
@@ -78,7 +82,11 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 fabSend.setEnabled(false);
                 fabDismiss.setEnabled(false);
                 speakOut();
-                startActivity(new Intent(AlertActivity.this,NavigationActivity.class));
+                Intent mIntent = new Intent();
+                mIntent.setClass(AlertActivity.this, SendSMSActivity.class);
+                mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(mIntent);
+                //startActivity(new Intent(AlertActivity.this,NavigationActivity.class));
             }
         }); //end of Send button
 
