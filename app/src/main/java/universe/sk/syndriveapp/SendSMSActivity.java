@@ -36,7 +36,7 @@ public class SendSMSActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setIcon(R.drawable.sms);
-        actionBar.setTitle(" Edit Profile");
+        actionBar.setTitle(" SOS Sent");
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
