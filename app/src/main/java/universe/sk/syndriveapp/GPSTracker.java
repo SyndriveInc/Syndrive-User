@@ -36,10 +36,12 @@ public class GPSTracker  {
     private String currentAddress;
     private List<String> hospitalAddresses;
 
+    private List<Point> mPoints;
+    private List<String> items;
+
     public String getCurrentAddress() {
         return currentAddress;
     }
-
 
     public List<String> getHospitalAddress() { return hospitalAddresses; }
 
@@ -53,7 +55,7 @@ public class GPSTracker  {
         mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, mLocationListener);
         mGeocoder = new Geocoder(mContext);    // Object to get address using coordinates
 
-        //mPoints = new ArrayList<>();
+        mPoints = new ArrayList<>();
         hospitalAddresses = new ArrayList<>();
     }
 
@@ -65,7 +67,7 @@ public class GPSTracker  {
             findHospitalAddress(location);
 
             /*
-             * Code for calculation Speed
+             * Code for calculating Speed
 
             Point mPoint = new Point(location.getLongitude(), location.getLatitude(), System.currentTimeMillis());
             mPoints.add(mPoint);
@@ -114,7 +116,7 @@ public class GPSTracker  {
                     // Get the data from the API
                     inputStream = urlConnection.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                    StringBuffer stringBuffer = new StringBuffer();
+                    StringBuilder stringBuffer = new StringBuilder();
                     String line;
                     while ((line = bufferedReader.readLine()) != null) stringBuffer.append(line);
 

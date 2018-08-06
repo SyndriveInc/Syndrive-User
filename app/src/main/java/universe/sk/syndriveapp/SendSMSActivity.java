@@ -1,6 +1,7 @@
 package universe.sk.syndriveapp;
 
 import android.support.annotation.NonNull;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.telephony.SmsManager;
@@ -15,6 +16,8 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.util.List;
+
 public class SendSMSActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
@@ -22,6 +25,7 @@ public class SendSMSActivity extends AppCompatActivity {
     private FirebaseStorage firebaseStorage;
     private StorageReference storageReference;
     private GPSTracker mGPSTracker;
+    private List<String> hospitals;
 
     String etName, etName1, etNum1, etName2, etNum2, etName3, etNum3;
 
@@ -30,6 +34,13 @@ public class SendSMSActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_send_sms);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setIcon(R.drawable.sms);
+        actionBar.setTitle(" Edit Profile");
+        actionBar.setDisplayUseLogoEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         mGPSTracker = new GPSTracker(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -37,6 +48,7 @@ public class SendSMSActivity extends AppCompatActivity {
         firebaseStorage = FirebaseStorage.getInstance();
 
         storageReference = firebaseStorage.getReference();
+        hospitals = mGPSTracker.getHospitalAddress();
 
         final DatabaseReference databaseReference = firebaseDatabase.getReference("users").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -66,13 +78,20 @@ public class SendSMSActivity extends AppCompatActivity {
     private void sendSMSMessage(){
         String message = constructMessage();
         SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(etNum1,null,message,null,null);
-        smsManager.sendTextMessage(etNum2,null,message,null,null);
-        smsManager.sendTextMessage(etNum3,null,message,null,null);
+        smsManager.sendTextMessage(etNum1, null, message, null, null);
+        smsManager.sendTextMessage(etNum2, null, message, null, null);
+        smsManager.sendTextMessage(etNum3, null, message, null, null);
     }
 
     private String constructMessage(){
-        String message = "Alert! It appears that " + etName + " may have been in an accident. " + etName + " has chosen you as their emergency contact. ";
+        //String location = mGPSTracker.getCurrentAddress();
+        String message = "Alert! It appears that " + etName + " may have been in an accident. " +
+                etName + " has chosen you as their emergency contact. "; /* + etName
+                + "'s current location is: " + location
+                + " . Nearby hospitals include "; */
+        /* for (String hospital : hospitals) {
+            message += hospital + "; ";
+        } */
         return message;
     }
 }

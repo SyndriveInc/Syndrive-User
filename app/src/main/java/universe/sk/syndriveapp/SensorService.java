@@ -66,7 +66,7 @@ public class SensorService extends Service implements SensorEventListener {
     public void onDestroy() {
         super.onDestroy();
 
-        mSensorManager.unregisterListener(this);                            // Unregister sensor when not in use
+        mSensorManager.unregisterListener(this);           // Unregister sensor when not in use
 
         mNotificationManager.cancel(NOTIFICATION);
         stopSelf();
