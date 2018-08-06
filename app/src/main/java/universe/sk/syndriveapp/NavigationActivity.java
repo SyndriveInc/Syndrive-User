@@ -79,22 +79,22 @@ public class NavigationActivity extends AppCompatActivity
 
         setNavProfilePic();
 
-        /* final DatabaseReference databaseReference = firebaseDatabase.getReference("users").child(firebaseAuth.getUid());
+        final DatabaseReference databaseReference = firebaseDatabase.getReference("users").child(firebaseAuth.getUid());
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Userinfo userinfo;
                 userinfo = dataSnapshot.getValue(Userinfo.class);
 
-                tvNavName.setText(userinfo.getUsername());
-                tvNavEmail.setText(userinfo.getUemail());
+                tvNavName.setText(userinfo.getUsername().trim());
+                tvNavEmail.setText(userinfo.getUemail().trim());
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(NavigationActivity.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
-        }); */
+        });
 
         //default fragment
         ContactUsFragment contactUsFragment = new ContactUsFragment();
