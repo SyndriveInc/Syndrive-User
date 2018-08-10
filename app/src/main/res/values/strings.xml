@@ -45,6 +45,7 @@
     <string name="action_edit">Edit</string>
 
     <string name="tv_add_emergency_contacts">Add Emergency Contacts</string>
+    <string name="tv_select_emergency_contacts">Select your Emergency Contacts: </string>
     <string name="tv_emergency_contacts">Emergency Contacts</string>
     <string name="hint_emname1">1. Name</string>
     <string name="hint_num1">Number</string>

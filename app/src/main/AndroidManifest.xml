@@ -90,6 +90,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity" />
         </activity>
+        <activity android:name=".AddContacts" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".RegistrationActivity" />
+        </activity>
 
         <service
             android:name=".SensorService"
