@@ -21,6 +21,18 @@
         android:fontFamily="sans-serif-smallcaps"
         />
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        app:backgroundTint="@color/fab_background"
+        android:tint="@color/black"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="300dp"
+        app:srcCompat="@drawable/add" />
+
     <Button
         android:id="@+id/registerbtn"
         android:layout_width="match_parent"

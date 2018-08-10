@@ -39,6 +39,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginEnd="20dp"
             android:clickable="true"
+            android:tint="@color/black"
             android:focusable="true"
             app:backgroundTint="@color/fab_background"
             app:srcCompat="@drawable/edit" />
@@ -49,6 +50,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
             android:layout_marginEnd="20dp"
+            android:tint="@color/black"
             android:clickable="true"
             android:focusable="true"
             app:backgroundTint="@color/fab_background"
@@ -60,6 +62,7 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
+            android:tint="@color/black"
             android:layout_marginStart="230dp"
             android:layout_marginTop="100dp"
             app:backgroundTint="@color/fab_background"
