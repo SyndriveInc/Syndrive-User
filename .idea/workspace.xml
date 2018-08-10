@@ -10,8 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4ffea08-bbad-4dc9-856f-e216d70daa4a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_addcontacts.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_addcontacts.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,24 +47,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AddContacts.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="AddContacts.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="658">
+              <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_addcontacts.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_addcontacts.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_addcontacts.xml">
           <provider selected="true" editor-type-id="android-designer2">
             <state />
           </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="590">
-              <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+              <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
               <folding>
                 <element signature="e#555#593#0" expanded="true" />
               </folding>
@@ -2133,11 +2133,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/nav_header_navigation.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/SendSMSActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/NavigationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_addcontacts.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java" />
       </list>
     </option>
   </component>
@@ -2694,14 +2694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/add.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2727,10 +2719,18 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="590">
-          <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+          <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
           <folding>
             <element signature="e#555#593#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="29" column="8" lean-forward="false" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>

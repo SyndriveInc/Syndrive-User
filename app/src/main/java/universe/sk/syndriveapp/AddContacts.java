@@ -1,21 +1,15 @@
 package universe.sk.syndriveapp;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
-
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
 
 public class AddContacts extends AppCompatActivity {
 
+    FloatingActionButton fabAdd;
+    Button btnRegister;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +23,11 @@ public class AddContacts extends AppCompatActivity {
         actionBar.setDisplayUseLogoEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        fabAdd = findViewById(R.id.fabAdd);
+        btnRegister = findViewById(R.id.btn_register);
+
+        
 
     }
 }

@@ -22,15 +22,15 @@
         />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fabAdd"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="10dp"
         android:clickable="true"
         android:focusable="true"
-        app:backgroundTint="@color/fab_background"
         android:tint="@color/black"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="300dp"
+        app:backgroundTint="@color/fab_background"
         app:srcCompat="@drawable/add" />
 
     <Button
