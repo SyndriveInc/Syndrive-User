@@ -90,7 +90,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity" />
         </activity>
-        <activity android:name=".AddContacts" >
+        <activity android:name=".AddContacts">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RegistrationActivity" />
@@ -100,9 +100,10 @@
             android:name=".SensorService"
             android:exported="false" />
 
-        <activity android:name=".TrackingActivity"
-            android:label="Tracking">
-        </activity>
+        <activity
+            android:name=".TrackingActivity"
+            android:label="Tracking"></activity>
+        <activity android:name=".ContactList"></activity>
     </application>
 
 </manifest>

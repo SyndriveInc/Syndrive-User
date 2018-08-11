@@ -31,7 +31,7 @@ public class AddContacts extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
         fabAdd = findViewById(R.id.fabAdd);
-        btnRegister = findViewById(R.id.btn_register);
+        btnRegister = findViewById(R.id.registerbtn);
 
         fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,7 +48,12 @@ public class AddContacts extends AppCompatActivity {
 
         if (requestCode == REQUEST_CONTACTS && resultCode == RESULT_OK) {
             Uri contactData = data.getData();
-            
+            Cursor c = getContentResolver().query(contactData, null, null, null, null);
+            if (c.moveToFirst()) {
+                String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
+                // TODO Fetch other Contact details as you want to use
+
+            }
         }
     } // end of onActivityResult
 }
