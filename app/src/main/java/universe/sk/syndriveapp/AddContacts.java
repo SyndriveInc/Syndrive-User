@@ -13,7 +13,7 @@ import android.widget.Button;
 
 public class AddContacts extends AppCompatActivity {
 
-    FloatingActionButton fabAdd;
+    //FloatingActionButton fabAdd;
     Button btnRegister;
     private final int REQUEST_CONTACTS = 1;
 
@@ -30,16 +30,16 @@ public class AddContacts extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        fabAdd = findViewById(R.id.fabAdd);
+        //fabAdd = findViewById(R.id.fabAdd);
         btnRegister = findViewById(R.id.registerbtn);
 
-        fabAdd.setOnClickListener(new View.OnClickListener() {
+        /* fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Intent.ACTION_DEFAULT, ContactsContract.Contacts.CONTENT_URI);
                 startActivityForResult(intent, REQUEST_CONTACTS);
             }
-        });
+        }); */
     } // end of onCreate
 
     @Override

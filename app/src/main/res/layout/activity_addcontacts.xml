@@ -11,28 +11,12 @@
     tools:context=".AddContacts"
     android:orientation="vertical">
 
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rvContacts"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/tv_select_emergency_contacts"
-        android:textSize="18sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:gravity="center_horizontal"
-        android:fontFamily="sans-serif-smallcaps"
-        />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabAdd"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="300dp"
-        android:layout_marginTop="10dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:tint="@color/black"
-        app:backgroundTint="@color/fab_background"
-        app:srcCompat="@drawable/add" />
+        android:scrollbarSize="4dp"
+        android:scrollbars="vertical"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/registerbtn"
