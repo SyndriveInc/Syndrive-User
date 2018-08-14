@@ -190,7 +190,7 @@ public class NavigationActivity extends AppCompatActivity
             finish();
             startActivity(i);
 
-        }else if(id == R.id.nav_conatctus){
+        }else if(id == R.id.nav_contactus){
 
             ContactUsFragment contactUsFragment = new ContactUsFragment();
             FragmentManager manager = getSupportFragmentManager();

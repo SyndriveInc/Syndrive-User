@@ -18,5 +18,5 @@ public class EditContacts extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-    }
-}
+    } // end of onCreate
+} // end of EditContacts Activity

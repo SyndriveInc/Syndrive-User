@@ -26,12 +26,12 @@
             android:title="@string/nav_logout" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="@string/communicate">
         <menu>
             <item
                 android:id="@+id/nav_contactus"
                 android:icon="@android:drawable/ic_dialog_map"
-                android:title="Location"/>
+                android:title="@string/nav_contactus"/>
         </menu>
     </item>
 
