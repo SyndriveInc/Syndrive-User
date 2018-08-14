@@ -103,8 +103,9 @@
 
         <activity
             android:name=".TrackingActivity"
-            android:label="Tracking"></activity>
-        <activity android:name=".ContactList"></activity>
+            android:label="Tracking" />
+        <activity android:name=".ContactList" />
+        <activity android:name=".EditContacts"></activity>
     </application>
 
 </manifest>
