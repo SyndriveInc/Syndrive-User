@@ -104,7 +104,6 @@
         <activity
             android:name=".TrackingActivity"
             android:label="Tracking" />
-        <activity android:name=".ContactList" />
         <activity android:name=".EditContacts"></activity>
     </application>
 
