@@ -99,5 +99,7 @@
     <string name="toggle_stop_driving">Stop Driving</string>
     <string name="string">\@string/toggle_start_driving</string>
     <string name="sms_sent">Your SMS has been sent</string>
+    <string name="call">Call</string>
+    <string name="delete">Delete</string>
 
 </resources>
