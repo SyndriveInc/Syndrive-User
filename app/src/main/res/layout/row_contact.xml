@@ -1,69 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="20dp"
     android:orientation="vertical">
 
-    <LinearLayout
+    <android.support.v7.widget.CardView
+        android:id="@+id/cvContact"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content">
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:orientation="vertical">
+            android:layout_margin="10dp"
+            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvContactName"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:hint="@string/hint_contact_name"
-                android:textSize="18sp"
-                android:textColor="@color/colorPrimaryDark"
-                android:textColorHint="@color/colorPrimary"
-                android:textStyle="bold" />
+                android:layout_weight="7"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/tvContactNumber"
-                android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/tvContactName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:hint="@string/hint_contact_name"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textColorHint="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvContactNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_contact_number"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivCall"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:hint="@string/hint_contact_number"
-                android:textSize="16sp"
-                android:textColor="@color/black"
-                android:textColorHint="@color/black"
-                android:textStyle="normal" />
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_weight="1"
+                android:contentDescription="@string/call"
+                android:scaleX="1.1"
+                android:scaleY="1.1"
+                android:tint="@color/colorPrimary"
+                app:srcCompat="@drawable/call" />
+
+            <ImageView
+                android:id="@+id/ivDelete"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginStart="5dp"
+                android:layout_weight="1"
+                android:contentDescription="@string/delete"
+                android:scaleX="1.1"
+                android:scaleY="1.1"
+                android:tint="@color/red"
+                app:srcCompat="@drawable/delete" />
+
         </LinearLayout>
-
-        <ImageView
-            android:id="@+id/ivCall"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:tint="@color/colorPrimary"
-            android:contentDescription="@string/call"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
-            android:layout_gravity="center_horizontal|center_vertical"
-            app:srcCompat="@drawable/call" />
-
-        <ImageView
-            android:id="@+id/ivDelete"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|center_vertical"
-            android:layout_marginStart="5dp"
-            android:layout_weight="1"
-            android:tint="@color/red"
-            android:contentDescription="@string/delete"
-            android:scaleX="1.1"
-            android:scaleY="1.1"
-            app:srcCompat="@drawable/delete" />
-
-    </LinearLayout>
+    </android.support.v7.widget.CardView>
 
 </LinearLayout>
