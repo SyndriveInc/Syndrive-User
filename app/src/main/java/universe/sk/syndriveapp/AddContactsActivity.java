@@ -29,7 +29,6 @@ public class AddContactsActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
-    private StorageReference storageReference;
 
     private final int REQUEST_CONTACTS = 1;
 
@@ -105,4 +104,4 @@ public class AddContactsActivity extends AppCompatActivity {
             } */
         }
     } // end of onActivityResult
-}
+} // end of AddContactsActivity
