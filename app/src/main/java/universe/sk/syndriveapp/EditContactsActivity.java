@@ -4,7 +4,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class EditContacts extends AppCompatActivity {
+public class EditContactsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,4 +19,4 @@ public class EditContacts extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
 
     } // end of onCreate
-} // end of EditContacts Activity
+} // end of EditContactsActivityActivity

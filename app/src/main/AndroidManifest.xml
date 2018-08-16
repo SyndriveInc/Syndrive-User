@@ -74,7 +74,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity" />
         </activity>
-        <!-- <activity android:name=".AddContacts"> -->
+        <!-- <activity android:name=".AddContactsActivity"> -->
         <!-- <meta-data -->
         <!-- android:name="android.support.PARENT_ACTIVITY" -->
         <!-- android:value=".RegistrationActivity" /> -->
@@ -91,7 +91,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".NavigationActivity" />
         </activity>
-        <activity android:name=".AddContacts">
+        <activity android:name=".AddContactsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".RegistrationActivity" />
@@ -104,7 +104,11 @@
         <activity
             android:name=".TrackingActivity"
             android:label="Tracking" />
-        <activity android:name=".EditContacts"></activity>
+        <activity android:name=".EditContactsActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".NavigationActivity" />
+        </activity>
     </application>
 
 </manifest>
