@@ -12,9 +12,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 
 public class AddContacts extends AppCompatActivity {
 
+    ListView lvContactList;
+    String[] contactNames = { "Srividya", "Megha", "Suvarna" };
+    String[] contactNumbers = { "+917736497532", "+918078906366" , "+919074976560" };
     //FloatingActionButton fabAdd;
     Button btnRegister;
     private final int REQUEST_CONTACTS = 1;
@@ -34,6 +38,7 @@ public class AddContacts extends AppCompatActivity {
 
         //fabAdd = findViewById(R.id.fabAdd);
         btnRegister = findViewById(R.id.registerbtn);
+        lvContactList = findViewById(R.id.lvContactList);
 
         /* fabAdd.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -79,22 +79,33 @@
     <string name="title_alert">Alert Time</string>
     <string name="title_dialog_duration">Select duration</string>
 
+    <string-array name="blood_groups">
+        <item>A+</item>
+        <item>B+</item>
+        <item>O+</item>
+        <item>AB+</item>
+        <item>A-</item>
+        <item>B-</item>
+        <item>O-</item>
+        <item>AB-</item>
+    </string-array>
+
     <string-array name="settings_list_preference_titles">
         <item>10 seconds</item>
         <item>15 seconds</item>
         <item>20 seconds</item>
         <item>25 seconds</item>
         <item>30 seconds</item>
-
     </string-array>
+
     <string-array name="settings_list_preference_values">
         <item>10</item>
         <item>15</item>
         <item>20</item>
         <item>25</item>
         <item>30</item>
-
     </string-array>
+
     <string name="toggle_start_driving">Start Driving</string>
     <string name="toggle_stop_driving">Stop Driving</string>
     <string name="string">\@string/toggle_start_driving</string>

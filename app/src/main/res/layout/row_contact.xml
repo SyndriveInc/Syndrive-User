@@ -27,7 +27,7 @@
                     android:id="@+id/tvContactName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="3dp"
                     android:hint="@string/hint_contact_name"
                     android:textColor="@color/colorPrimaryDark"
                     android:textColorHint="@color/colorPrimary"
