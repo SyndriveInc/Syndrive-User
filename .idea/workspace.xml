@@ -17,7 +17,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContactsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContactsActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/MainActivity.java" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditContactsActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditContactsActivity.java" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -74,8 +74,18 @@
       <file leaf-file-name="AddContactsActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContactsActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="93" column="51" lean-forward="true" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
+            <state relative-caret-position="568">
+              <caret line="119" column="52" lean-forward="true" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditContactsActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditContactsActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -2171,10 +2181,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_contacts.xml" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_addcontacts.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditContactsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/NavigationActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContactsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditContactsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContactsActivity.java" />
       </list>
     </option>
   </component>
@@ -2919,14 +2929,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditContactsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1860">
-          <caret line="74" column="32" lean-forward="true" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/NavigationActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1108">
@@ -2962,10 +2964,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditContactsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="70" column="38" lean-forward="false" selection-start-line="70" selection-start-column="38" selection-end-line="70" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContactsActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="93" column="51" lean-forward="true" selection-start-line="93" selection-start-column="51" selection-end-line="93" selection-end-column="51" />
+        <state relative-caret-position="568">
+          <caret line="119" column="52" lean-forward="true" selection-start-line="119" selection-start-column="52" selection-end-line="119" selection-end-column="52" />
           <folding />
         </state>
       </provider>

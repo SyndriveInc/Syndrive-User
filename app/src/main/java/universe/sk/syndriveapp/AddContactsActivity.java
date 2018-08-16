@@ -27,10 +27,11 @@ public class AddContactsActivity extends AppCompatActivity {
     //String[] contactNames = { "Srividya", "Megha", "Suvarna" };
     //String[] contactNumbers = { "+917736497532", "+918078906366" , "+919074976560" };
     ArrayList<Contact> contacts;
-    private static ContactAdapter adapter;
+    //private static ContactAdapter adapter;
+    private ContactAdapter adapter;
     //FloatingActionButton fabAdd;
     Button btnRegister;
-    SharedPreferences contactDetails;
+    //SharedPreferences contactDetails;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -101,7 +102,7 @@ public class AddContactsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CONTACTS && resultCode == RESULT_OK) {
-            SharedPreferences.Editor edit = contactDetails.edit();
+            //SharedPreferences.Editor edit = contactDetails.edit();
             Uri uri = data.getData();
             String names[] = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
             Cursor cursor = getContentResolver().query(uri, names, null, null, null);
@@ -118,10 +119,10 @@ public class AddContactsActivity extends AppCompatActivity {
 
             contacts.add(new Contact(name, number));
 
-            edit.putString("Name: ", name);
-            edit.apply();
-            edit.putString("Number: ", number);
-            edit.apply();
+//            edit.putString("Name: ", _name);
+//            edit.apply();
+//            edit.putString("Number: ", _number);
+//            edit.apply();
         }
     } // end of onActivityResult
 } // end of AddContactsActivity

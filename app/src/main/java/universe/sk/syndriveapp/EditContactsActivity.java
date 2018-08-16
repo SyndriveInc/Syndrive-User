@@ -68,7 +68,7 @@ public class EditContactsActivity extends AppCompatActivity {
             // start contact picker intent
             //Intent intent = new Intent(Intent.ACTION_DEFAULT, ContactsContract.Contacts.CONTENT_URI);
             //startActivityForResult(intent, REQUEST_CONTACTS);
-            Toast.makeText(this, "Contact Added", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Add Contact", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
