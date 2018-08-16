@@ -29,7 +29,8 @@ import java.io.IOException;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class EditProfileActivity extends AppCompatActivity {
-    private EditText etName, etEmail, etBloodGroup, etDOB, etName1, etNum1, etName2, etNum2, etName3, etNum3;
+    private EditText etName, etEmail, etBloodGroup, etDOB;
+    //private EditText etName1, etNum1, etName2, etNum2, etName3, etNum3;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseStorage firebaseStorage;
@@ -79,12 +80,12 @@ public class EditProfileActivity extends AppCompatActivity {
                 etBloodGroup.setText(userinfo.getBloodgroup());
                 etDOB.setText(userinfo.getUdate());
                 etEmail.setText(userinfo.getUemail());
-                etName1.setText(userinfo.getCname1());
-                etName2.setText(userinfo.getCname2());
-                etName3.setText(userinfo.getCname3());
-                etNum1.setText(userinfo.getCnum1());
-                etNum2.setText(userinfo.getCnum2());
-                etNum3.setText(userinfo.getCnum3());
+//                etName1.setText(userinfo.getCname1());
+//                etName2.setText(userinfo.getCname2());
+//                etName3.setText(userinfo.getCname3());
+//                etNum1.setText(userinfo.getCnum1());
+//                etNum2.setText(userinfo.getCnum2());
+//                etNum3.setText(userinfo.getCnum3());
             }
 
             @Override
@@ -112,13 +113,14 @@ public class EditProfileActivity extends AppCompatActivity {
                 String email = etEmail.getText().toString();
                 String bloodgroup = etBloodGroup.getText().toString();
                 String date = etDOB.getText().toString();
-                String ename1= etName1.getText().toString();
-                String ename2 = etName2.getText().toString();
-                String ename3 = etName3.getText().toString();
-                String enum1 = etNum1.getText().toString();
-                String enum2 = etNum2.getText().toString();
-                String enum3 = etNum3.getText().toString();
-                Userinfo userinfo = new Userinfo(name, email, date, bloodgroup,ename1,enum1,ename2,enum2,ename3,enum3);
+//                String ename1= etName1.getText().toString();
+//                String ename2 = etName2.getText().toString();
+//                String ename3 = etName3.getText().toString();
+//                String enum1 = etNum1.getText().toString();
+//                String enum2 = etNum2.getText().toString();
+//                String enum3 = etNum3.getText().toString();
+                Userinfo userinfo = new Userinfo(name, email, date, bloodgroup);
+                //Userinfo userinfo = new Userinfo(name, email, date, bloodgroup, ename1, enum1, ename2, enum2, ename3, enum3);
                 databaseReference.setValue(userinfo);
 
                 disableFields();
@@ -145,12 +147,12 @@ public class EditProfileActivity extends AppCompatActivity {
         etDOB = findViewById(R.id.etDOB);
         etBloodGroup = findViewById(R.id.etBloodGroup);
         etEmail = findViewById(R.id.etEmail);
-        etName1 = findViewById(R.id.etName1);
-        etNum1 = findViewById(R.id.etNum1);
-        etName2 = findViewById(R.id.etName2);
-        etNum2 = findViewById(R.id.etNum2);
-        etName3 = findViewById(R.id.etName3);
-        etNum3 = findViewById(R.id.etNum3);
+//        etName1 = findViewById(R.id.etName1);
+//        etNum1 = findViewById(R.id.etNum1);
+//        etName2 = findViewById(R.id.etName2);
+//        etNum2 = findViewById(R.id.etNum2);
+//        etName3 = findViewById(R.id.etName3);
+//        etNum3 = findViewById(R.id.etNum3);
         fabEdit = findViewById(R.id.fabEdit);
         fabSave = findViewById(R.id.fabSave);
         fabGallery = findViewById(R.id.fabGallery);
@@ -162,24 +164,24 @@ public class EditProfileActivity extends AppCompatActivity {
         etDOB.setEnabled(false);
         etBloodGroup.setEnabled(false);
         etEmail.setEnabled(false);
-        etName1.setEnabled(false);
-        etNum1.setEnabled(false);
-        etName2.setEnabled(false);
-        etNum2.setEnabled(false);
-        etName3.setEnabled(false);
-        etNum3.setEnabled(false);
+//        etName1.setEnabled(false);
+//        etNum1.setEnabled(false);
+//        etName2.setEnabled(false);
+//        etNum2.setEnabled(false);
+//        etName3.setEnabled(false);
+//        etNum3.setEnabled(false);
     } //end of disableFields
 
     private void enableFields() {
         etName.setEnabled(true);
         etDOB.setEnabled(true);
         etBloodGroup.setEnabled(true);
-        etName1.setEnabled(true);
-        etNum1.setEnabled(true);
-        etName2.setEnabled(true);
-        etNum2.setEnabled(true);
-        etName3.setEnabled(true);
-        etNum3.setEnabled(true);
+//        etName1.setEnabled(true);
+//        etNum1.setEnabled(true);
+//        etName2.setEnabled(true);
+//        etNum2.setEnabled(true);
+//        etName3.setEnabled(true);
+//        etNum3.setEnabled(true);
     } //end of enableFields
 
     private void setProfilePic() {

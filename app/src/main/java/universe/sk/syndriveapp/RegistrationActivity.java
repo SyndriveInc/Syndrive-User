@@ -22,15 +22,15 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private EditText etName, etEmailsign, etPassign, etConfirmPassign, etBloodgroup,
-            etDate, etEmName1, etEmName2, etEmName3, etEmNum1, etEmNum2, etEmNum3;
-    // private Spinner spinnerBloodGroup;
+    private EditText etName, etEmailsign, etPassign, etConfirmPassign, etBloodgroup, etDate;
+    //private EditText etEmName1, etEmName2, etEmName3, etEmNum1, etEmNum2, etEmNum3;
+    //private Spinner spinnerBloodGroup;
     private Button btn_register;
     private TextView tvExist;
     private FirebaseAuth firebaseAuth;
     String name,email,password,bloodgrp,date;
-    String emname1,emname2,emname3;
-    String emnum1,emnum2,emnum3;
+//    String emname1,emname2,emname3;
+//    String emnum1,emnum2,emnum3;
 
 
     @Override
@@ -48,25 +48,27 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                if(validate())
+                if (validate())
                 {
                     String user_email = etEmailsign.getText().toString().trim();
                     String user_password = etPassign.getText().toString().trim();
 
-                    //store in database:to be done after filling the contacts
+                    //store in database: to be done after filling the contacts
                     firebaseAuth.createUserWithEmailAndPassword(user_email,user_password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if(task.isSuccessful()){
                                 adduser();
                                 finish();
-                                startActivity(new Intent(RegistrationActivity.this, NavigationActivity.class));
-                                Toast.makeText(RegistrationActivity.this, "Registration Successful!", Toast.LENGTH_SHORT).show();
+                                //startActivity(new Intent(RegistrationActivity.this, NavigationActivity.class));
+                                startActivity(new Intent(RegistrationActivity.this, AddContacts.class));
+                                Toast.makeText(RegistrationActivity.this, "Authentication Successful!", Toast.LENGTH_SHORT).show();
                             }
                             else
-                                Toast.makeText(RegistrationActivity.this, "Registration Failed!", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegistrationActivity.this, "Authentication Failed!", Toast.LENGTH_SHORT).show();
                         }
                     });
+                    // startActivity(new Intent(RegistrationActivity.this, AddContacts.class));
 
                 }
             }
@@ -92,12 +94,12 @@ public class RegistrationActivity extends AppCompatActivity {
         etDate = findViewById(R.id.etDate);
         etBloodgroup = findViewById(R.id.etBloodgroup);
         //spinnerBloodGroup = findViewById(R.id.spinnerBloodGroup);
-        etEmName1 = findViewById(R.id.etEmName1);
-        etEmName2 = findViewById(R.id.etEmName2);
-        etEmName3 = findViewById(R.id.etEmName3);
-        etEmNum1 = findViewById(R.id.etEmNum1);
-        etEmNum2 = findViewById(R.id.etEmNum2);
-        etEmNum3 = findViewById(R.id.etEmNum3);
+//        etEmName1 = findViewById(R.id.etEmName1);
+//        etEmName2 = findViewById(R.id.etEmName2);
+//        etEmName3 = findViewById(R.id.etEmName3);
+//        etEmNum1 = findViewById(R.id.etEmNum1);
+//        etEmNum2 = findViewById(R.id.etEmNum2);
+//        etEmNum3 = findViewById(R.id.etEmNum3);
     }
 
     private Boolean validate()
@@ -109,12 +111,12 @@ public class RegistrationActivity extends AppCompatActivity {
         password = etPassign.getText().toString();
         // spinnerBloodGroup.setOnItemSelectedListener(new CustomOnItemSelectedListener());
         email = etEmailsign.getText().toString();
-        emname1 = etEmName1.getText().toString();
-        emnum1 =etEmNum1.getText().toString();
-        emname2 = etEmName2.getText().toString();
-        emnum2 = etEmNum2.getText().toString();
-        emname3 = etEmName3.getText().toString();
-        emnum3 = etEmNum3.getText().toString();
+//        emname1 = etEmName1.getText().toString();
+//        emnum1 =etEmNum1.getText().toString();
+//        emname2 = etEmName2.getText().toString();
+//        emnum2 = etEmNum2.getText().toString();
+//        emname3 = etEmName3.getText().toString();
+//        emnum3 = etEmNum3.getText().toString();
 
         String confirmpass = etConfirmPassign.getText().toString();
 
@@ -130,6 +132,7 @@ public class RegistrationActivity extends AppCompatActivity {
         }
         return result;
     }
+
     private void adduser(){
 //        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
 //        DatabaseReference databaseusers= firebaseDatabase.getReference(firebaseAuth.getUid());
@@ -138,7 +141,8 @@ public class RegistrationActivity extends AppCompatActivity {
 //        databaseusers.setValue(user);
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
         DatabaseReference databaseusers = firebaseDatabase.getReference("users");
-        Userinfo userinfo = new Userinfo(name,email,date,bloodgrp,emname1,emnum1,emname2,emnum2,emname3,emnum3);
+        Userinfo userinfo = new Userinfo(name, email, date, bloodgrp);
+        //Userinfo userinfo = new Userinfo(name, email, date, bloodgrp, emname1, emnum1, emname2, emnum2, emname3, emnum3);
         databaseusers.child(firebaseAuth.getUid()).setValue(userinfo);
 
     }

@@ -64,7 +64,8 @@
     <string name="hint_num2">Number</string>
     <string name="hint_emname3">3. Name</string>
     <string name="hint_num3">Number</string>
-    <string name="hint_registerbtn">Register</string>
+    <string name="hint_btn_register">Register</string>
+    <string name="hint_btn_next">Next</string>
 
     <!-- Example settings for Notifications -->
     <string name="pref_header_notifications">Notifications</string>

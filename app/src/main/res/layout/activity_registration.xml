@@ -149,100 +149,100 @@
                     android:inputType="textPassword" />
             </android.support.design.widget.TextInputLayout>
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:gravity="center_horizontal"
-                android:text="@string/tv_add_emergency_contacts"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:fontFamily="sans-serif-smallcaps"
-                android:textStyle="bold" />
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:gravity="center_horizontal"-->
+                <!--android:text="@string/tv_add_emergency_contacts"-->
+                <!--android:textColor="@color/black"-->
+                <!--android:textSize="16sp"-->
+                <!--android:fontFamily="sans-serif-smallcaps"-->
+                <!--android:textStyle="bold" />-->
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimary">
-                <EditText
-                    android:id="@+id/etEmName1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:hint="@string/hint_emname1"
-                    android:inputType="textPersonName" />
-            </android.support.design.widget.TextInputLayout>
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColorHint="@color/colorPrimary">-->
+                <!--<EditText-->
+                    <!--android:id="@+id/etEmName1"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:ems="10"-->
+                    <!--android:hint="@string/hint_emname1"-->
+                    <!--android:inputType="textPersonName" />-->
+            <!--</android.support.design.widget.TextInputLayout>-->
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimary">
-                <EditText
-                    android:id="@+id/etEmNum1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/hint_num1"
-                    android:inputType="phone" />
-            </android.support.design.widget.TextInputLayout>
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColorHint="@color/colorPrimary">-->
+                <!--<EditText-->
+                    <!--android:id="@+id/etEmNum1"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="10"-->
+                    <!--android:hint="@string/hint_num1"-->
+                    <!--android:inputType="phone" />-->
+            <!--</android.support.design.widget.TextInputLayout>-->
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColorHint="@color/colorPrimary">
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:textColorHint="@color/colorPrimary">-->
 
-                <EditText
-                    android:id="@+id/etEmName2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/hint_emname2"
-                    android:inputType="textPersonName" />
-            </android.support.design.widget.TextInputLayout>
+                <!--<EditText-->
+                    <!--android:id="@+id/etEmName2"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="10"-->
+                    <!--android:hint="@string/hint_emname2"-->
+                    <!--android:inputType="textPersonName" />-->
+            <!--</android.support.design.widget.TextInputLayout>-->
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimary">
-                <EditText
-                    android:id="@+id/etEmNum2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/hint_num2"
-                    android:inputType="phone" />
-            </android.support.design.widget.TextInputLayout>
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColorHint="@color/colorPrimary">-->
+                <!--<EditText-->
+                    <!--android:id="@+id/etEmNum2"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="10"-->
+                    <!--android:hint="@string/hint_num2"-->
+                    <!--android:inputType="phone" />-->
+            <!--</android.support.design.widget.TextInputLayout>-->
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColorHint="@color/colorPrimary">
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:textColorHint="@color/colorPrimary">-->
 
-                <EditText
-                    android:id="@+id/etEmName3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <!--<EditText-->
+                    <!--android:id="@+id/etEmName3"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
 
-                    android:ems="10"
-                    android:hint="@string/hint_emname3"
-                    android:inputType="textPersonName" />
-            </android.support.design.widget.TextInputLayout>
+                    <!--android:ems="10"-->
+                    <!--android:hint="@string/hint_emname3"-->
+                    <!--android:inputType="textPersonName" />-->
+            <!--</android.support.design.widget.TextInputLayout>-->
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="@color/colorPrimary">
-                <EditText
-                    android:id="@+id/etEmNum3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/hint_num3"
-                    android:inputType="phone" />
-            </android.support.design.widget.TextInputLayout>
+            <!--<android.support.design.widget.TextInputLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColorHint="@color/colorPrimary">-->
+                <!--<EditText-->
+                    <!--android:id="@+id/etEmNum3"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:ems="10"-->
+                    <!--android:hint="@string/hint_num3"-->
+                    <!--android:inputType="phone" />-->
+            <!--</android.support.design.widget.TextInputLayout>-->
 
             <Button
                 android:id="@+id/btn_register"
@@ -253,7 +253,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:background="@color/colorPrimary"
-                android:text="@string/hint_registerbtn"
+                android:text="@string/hint_btn_next"
                 android:textColor="#FFFFFF" />
 
             <TextView

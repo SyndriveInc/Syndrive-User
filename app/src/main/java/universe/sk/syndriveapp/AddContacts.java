@@ -8,19 +8,36 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
+import java.util.ArrayList;
 
 public class AddContacts extends AppCompatActivity {
 
     ListView lvContactList;
-    String[] contactNames = { "Srividya", "Megha", "Suvarna" };
-    String[] contactNumbers = { "+917736497532", "+918078906366" , "+919074976560" };
+    //String[] contactNames = { "Srividya", "Megha", "Suvarna" };
+    //String[] contactNumbers = { "+917736497532", "+918078906366" , "+919074976560" };
+    ArrayList<Contact> contacts;
+    private static ContactAdapter adapter;
     //FloatingActionButton fabAdd;
     Button btnRegister;
+
+    private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
+    private StorageReference storageReference;
+
     private final int REQUEST_CONTACTS = 1;
 
     @Override
@@ -36,17 +53,28 @@ public class AddContacts extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        //fabAdd = findViewById(R.id.fabAdd);
         btnRegister = findViewById(R.id.registerbtn);
         lvContactList = findViewById(R.id.lvContactList);
 
-        /* fabAdd.setOnClickListener(new View.OnClickListener() {
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+
+        contacts = new ArrayList<>();
+
+        contacts.add(new Contact("Srividya", "+917736497532"));
+        contacts.add(new Contact("Megha", "+918078906366"));
+        contacts.add(new Contact("Suvarna", "+919074976560"));
+
+        adapter = new ContactAdapter(contacts, getApplicationContext());
+        lvContactList.setAdapter(adapter);
+
+        btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_DEFAULT, ContactsContract.Contacts.CONTENT_URI);
-                startActivityForResult(intent, REQUEST_CONTACTS);
+                startActivity(new Intent(AddContacts.this, NavigationActivity.class));
             }
-        }); */
+        });
+
     } // end of onCreate
 
     @Override
@@ -63,8 +91,9 @@ public class AddContacts extends AppCompatActivity {
 
         if (id == R.id.add_contact) {
             // start contact picker intent
-            Intent intent = new Intent(Intent.ACTION_DEFAULT, ContactsContract.Contacts.CONTENT_URI);
-            startActivityForResult(intent, REQUEST_CONTACTS);
+            //Intent intent = new Intent(Intent.ACTION_DEFAULT, ContactsContract.Contacts.CONTENT_URI);
+            //startActivityForResult(intent, REQUEST_CONTACTS);
+            Toast.makeText(this, "Contact Added", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -74,13 +103,13 @@ public class AddContacts extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CONTACTS && resultCode == RESULT_OK) {
-            Uri contactData = data.getData();
+            /* Uri contactData = data.getData();
             Cursor c = getContentResolver().query(contactData, null, null, null, null);
             if (c.moveToFirst()) {
                 String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
                 // TODO Fetch other Contact details as you want to use
 
-            }
+            } */
         }
     } // end of onActivityResult
 }

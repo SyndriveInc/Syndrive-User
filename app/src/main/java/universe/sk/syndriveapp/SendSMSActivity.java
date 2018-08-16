@@ -58,12 +58,15 @@ public class SendSMSActivity extends AppCompatActivity {
                 userinfo = dataSnapshot.getValue(Userinfo.class);
 
                 etName = userinfo.getUsername();
-                etName1 = userinfo.getCname1();
-                etName2 = userinfo.getCname2();
-                etName3 = userinfo.getCname3();
-                etNum1 = userinfo.getCnum1();
-                etNum2 = userinfo.getCnum2();
-                etNum3 = userinfo.getCnum3();
+//                etName1 = userinfo.getCname1();
+//                etName2 = userinfo.getCname2();
+//                etName3 = userinfo.getCname3();
+//                etNum1 = userinfo.getCnum1();
+//                etNum2 = userinfo.getCnum2();
+//                etNum3 = userinfo.getCnum3();
+                etNum1 = "+917736497532";
+                etNum2 = "+918078906366";
+                etNum3 = "+919074976560";
                 sendSMSMessage();
             }
 

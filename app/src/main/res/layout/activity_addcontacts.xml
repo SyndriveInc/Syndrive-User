@@ -12,10 +12,16 @@
     android:orientation="vertical">
 
     <ListView
+        android:id="@+id/lvContactList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/lvContactList">
+        android:layout_height="wrap_content">
     </ListView>
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/rvContactList"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:scrollbars="vertical">-->
+    <!--</android.support.v7.widget.RecyclerView>-->
 
     <Button
         android:id="@+id/registerbtn"
@@ -24,6 +30,6 @@
         android:layout_marginBottom="24dp"
         android:layout_marginTop="25dp"
         android:background="@color/colorPrimary"
-        android:text="@string/hint_registerbtn"
+        android:text="@string/hint_btn_register"
         android:textColor="#FFFFFF" />
 </LinearLayout>
