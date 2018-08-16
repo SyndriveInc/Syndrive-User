@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +22,9 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private EditText etName,etEmailsign,etPassign,etConfirmPassign,etBloodgroup,etDate, etEmName1, etEmName2, etEmName3, etEmNum1, etEmNum2, etEmNum3;
+    private EditText etName, etEmailsign, etPassign, etConfirmPassign, etBloodgroup,
+            etDate, etEmName1, etEmName2, etEmName3, etEmNum1, etEmNum2, etEmNum3;
+    // private Spinner spinnerBloodGroup;
     private Button btn_register;
     private TextView tvExist;
     private FirebaseAuth firebaseAuth;
@@ -88,6 +91,7 @@ public class RegistrationActivity extends AppCompatActivity {
         etConfirmPassign = findViewById(R.id.etConfirmPassign);
         etDate = findViewById(R.id.etDate);
         etBloodgroup = findViewById(R.id.etBloodgroup);
+        //spinnerBloodGroup = findViewById(R.id.spinnerBloodGroup);
         etEmName1 = findViewById(R.id.etEmName1);
         etEmName2 = findViewById(R.id.etEmName2);
         etEmName3 = findViewById(R.id.etEmName3);
@@ -103,6 +107,7 @@ public class RegistrationActivity extends AppCompatActivity {
         date = etDate.getText().toString().trim();
         name = etName.getText().toString();
         password = etPassign.getText().toString();
+        // spinnerBloodGroup.setOnItemSelectedListener(new CustomOnItemSelectedListener());
         email = etEmailsign.getText().toString();
         emname1 = etEmName1.getText().toString();
         emnum1 =etEmNum1.getText().toString();
