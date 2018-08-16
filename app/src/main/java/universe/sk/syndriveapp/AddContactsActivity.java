@@ -92,7 +92,7 @@ public class AddContactsActivity extends AppCompatActivity {
             Intent intent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
             intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
             startActivityForResult(intent, REQUEST_CONTACTS);
-            Toast.makeText(this, "Contact Added", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Contact Added", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

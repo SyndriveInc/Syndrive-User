@@ -1,5 +1,9 @@
 package universe.sk.syndriveapp;
 
+import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -66,10 +70,40 @@ public class EditContactsActivity extends AppCompatActivity {
 
         if (id == R.id.add_contact) {
             // start contact picker intent
-            //Intent intent = new Intent(Intent.ACTION_DEFAULT, ContactsContract.Contacts.CONTENT_URI);
-            //startActivityForResult(intent, REQUEST_CONTACTS);
-            Toast.makeText(this, "Add Contact", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
+            intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+            startActivityForResult(intent, REQUEST_CONTACTS);
+            //Toast.makeText(this, "Add Contact", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_CONTACTS && resultCode == RESULT_OK) {
+            //SharedPreferences.Editor edit = contactDetails.edit();
+            Uri uri = data.getData();
+            String names[] = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
+            Cursor cursor = getContentResolver().query(uri, names, null, null, null);
+            cursor.moveToFirst();
+            int column = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+            String name = cursor.getString(column);
+            cursor.close();
+            String numbers[] = {ContactsContract.CommonDataKinds.Phone.NUMBER};
+            Cursor cursor1 = getContentResolver().query(uri, numbers, null, null, null);
+            cursor1.moveToFirst();
+            column = cursor1.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            String number = cursor1.getString(column);
+            cursor1.close();
+
+            contacts.add(new Contact(name, number));
+
+//            edit.putString("Name: ", _name);
+//            edit.apply();
+//            edit.putString("Number: ", _number);
+//            edit.apply();
+        }
+    } // end of onActivityResult
+
 } // end of EditContactsActivity
