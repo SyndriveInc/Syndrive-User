@@ -6,30 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17478bdd-7c5c-42e3-9b0b-5d3c6512eb06" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/ContactInfo.java" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/fileHashes/fileHashes.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/classAnalysis.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/javaCompile.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.4/taskHistory/taskHistory.lock" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/AddContacts.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/ContactAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/ContactAdapter.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditProfileActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/EditProfileActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/RegistrationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/RegistrationActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/SendSMSActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/SendSMSActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/Userinfo.java" afterPath="$PROJECT_DIR$/app/src/main/java/universe/sk/syndriveapp/Userinfo.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_addcontacts.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_addcontacts.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_edit_profile.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_registration.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/row_contact.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_contact.xml" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-    </list>
+    <list default="true" id="17478bdd-7c5c-42e3-9b0b-5d3c6512eb06" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
