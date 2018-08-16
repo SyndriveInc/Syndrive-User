@@ -53,31 +53,9 @@ public class EditProfileActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        etName = findViewById(R.id.etName);
-        etDOB = findViewById(R.id.etDOB);
-        etBloodGroup = findViewById(R.id.etBloodGroup);
-        etEmail = findViewById(R.id.etEmail);
-        etName1 = findViewById(R.id.etName1);
-        etNum1 = findViewById(R.id.etNum1);
-        etName2 = findViewById(R.id.etName2);
-        etNum2 = findViewById(R.id.etNum2);
-        etName3 = findViewById(R.id.etName3);
-        etNum3 = findViewById(R.id.etNum3);
-        fabEdit = findViewById(R.id.fabEdit);
-        fabSave = findViewById(R.id.fabSave);
-        fabGallery = findViewById(R.id.fabGallery);
-        imageView_profile_pic = findViewById(R.id.imageView_profile_pic);
+        setupUIViews();
 
-        etName.setEnabled(false);
-        etDOB.setEnabled(false);
-        etBloodGroup.setEnabled(false);
-        etEmail.setEnabled(false);
-        etName1.setEnabled(false);
-        etNum1.setEnabled(false);
-        etName2.setEnabled(false);
-        etNum2.setEnabled(false);
-        etName3.setEnabled(false);
-        etNum3.setEnabled(false);
+        disableFields();
         fabSave.setVisibility(View.INVISIBLE);
 
         // mStorage = FirebaseStorage.getInstance().getReference();
@@ -121,15 +99,7 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 fabEdit.setVisibility(View.INVISIBLE);
                 fabSave.setVisibility(View.VISIBLE);
-                etName.setEnabled(true);
-                etDOB.setEnabled(true);
-                etBloodGroup.setEnabled(true);
-                etName1.setEnabled(true);
-                etNum1.setEnabled(true);
-                etName2.setEnabled(true);
-                etNum2.setEnabled(true);
-                etName3.setEnabled(true);
-                etNum3.setEnabled(true);
+                enableFields();
             }
         }); //end of fabEdit
         //Save User Profile into Firebase - fabSave
@@ -151,15 +121,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 Userinfo userinfo = new Userinfo(name, email, date, bloodgroup,ename1,enum1,ename2,enum2,ename3,enum3);
                 databaseReference.setValue(userinfo);
 
-                etName.setEnabled(false);
-                etDOB.setEnabled(false);
-                etBloodGroup.setEnabled(false);
-                etName1.setEnabled(false);
-                etNum1.setEnabled(false);
-                etName2.setEnabled(false);
-                etNum2.setEnabled(false);
-                etName3.setEnabled(false);
-                etNum3.setEnabled(false);
+                disableFields();
 
                 Toast.makeText(EditProfileActivity.this, "Successfully saved!", Toast.LENGTH_SHORT).show();
             }
@@ -177,6 +139,48 @@ public class EditProfileActivity extends AppCompatActivity {
         });
 
     } //end of onCreate
+
+    private void setupUIViews() {
+        etName = findViewById(R.id.etName);
+        etDOB = findViewById(R.id.etDOB);
+        etBloodGroup = findViewById(R.id.etBloodGroup);
+        etEmail = findViewById(R.id.etEmail);
+        etName1 = findViewById(R.id.etName1);
+        etNum1 = findViewById(R.id.etNum1);
+        etName2 = findViewById(R.id.etName2);
+        etNum2 = findViewById(R.id.etNum2);
+        etName3 = findViewById(R.id.etName3);
+        etNum3 = findViewById(R.id.etNum3);
+        fabEdit = findViewById(R.id.fabEdit);
+        fabSave = findViewById(R.id.fabSave);
+        fabGallery = findViewById(R.id.fabGallery);
+        imageView_profile_pic = findViewById(R.id.imageView_profile_pic);
+    } //end of setupUIViews
+
+    private void disableFields() {
+        etName.setEnabled(false);
+        etDOB.setEnabled(false);
+        etBloodGroup.setEnabled(false);
+        etEmail.setEnabled(false);
+        etName1.setEnabled(false);
+        etNum1.setEnabled(false);
+        etName2.setEnabled(false);
+        etNum2.setEnabled(false);
+        etName3.setEnabled(false);
+        etNum3.setEnabled(false);
+    } //end of disableFields
+
+    private void enableFields() {
+        etName.setEnabled(true);
+        etDOB.setEnabled(true);
+        etBloodGroup.setEnabled(true);
+        etName1.setEnabled(true);
+        etNum1.setEnabled(true);
+        etName2.setEnabled(true);
+        etNum2.setEnabled(true);
+        etName3.setEnabled(true);
+        etNum3.setEnabled(true);
+    } //end of enableFields
 
     private void setProfilePic() {
         storageReference = firebaseStorage.getReference();
