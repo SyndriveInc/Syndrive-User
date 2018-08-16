@@ -1,6 +1,10 @@
 package universe.sk.syndriveapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -26,6 +30,7 @@ public class AddContactsActivity extends AppCompatActivity {
     private static ContactAdapter adapter;
     //FloatingActionButton fabAdd;
     Button btnRegister;
+    SharedPreferences contactDetails;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -53,9 +58,9 @@ public class AddContactsActivity extends AppCompatActivity {
 
         contacts = new ArrayList<>();
 
-        contacts.add(new Contact("Srividya", "+917736497532"));
-        contacts.add(new Contact("Megha", "+918078906366"));
-        contacts.add(new Contact("Suvarna", "+919074976560"));
+//        contacts.add(new Contact("Srividya", "+917736497532"));
+//        contacts.add(new Contact("Megha", "+918078906366"));
+//        contacts.add(new Contact("Suvarna", "+919074976560"));
 
         adapter = new ContactAdapter(contacts, getApplicationContext());
         lvContactList.setAdapter(adapter);
@@ -83,8 +88,9 @@ public class AddContactsActivity extends AppCompatActivity {
 
         if (id == R.id.add_contact) {
             // start contact picker intent
-            //Intent intent = new Intent(Intent.ACTION_DEFAULT, ContactsContract.Contacts.CONTENT_URI);
-            //startActivityForResult(intent, REQUEST_CONTACTS);
+            Intent intent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
+            intent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
+            startActivityForResult(intent, REQUEST_CONTACTS);
             Toast.makeText(this, "Contact Added", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
@@ -95,13 +101,27 @@ public class AddContactsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CONTACTS && resultCode == RESULT_OK) {
-            /* Uri contactData = data.getData();
-            Cursor c = getContentResolver().query(contactData, null, null, null, null);
-            if (c.moveToFirst()) {
-                String name = c.getString(c.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-                // TODO Fetch other Contact details as you want to use
+            SharedPreferences.Editor edit = contactDetails.edit();
+            Uri uri = data.getData();
+            String names[] = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
+            Cursor cursor = getContentResolver().query(uri, names, null, null, null);
+            cursor.moveToFirst();
+            int column = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
+            String name = cursor.getString(column);
+            cursor.close();
+            String numbers[] = {ContactsContract.CommonDataKinds.Phone.NUMBER};
+            Cursor cursor1 = getContentResolver().query(uri, numbers, null, null, null);
+            cursor1.moveToFirst();
+            column = cursor1.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
+            String number = cursor1.getString(column);
+            cursor1.close();
 
-            } */
+            contacts.add(new Contact(name, number));
+
+            edit.putString("Name: ", name);
+            edit.apply();
+            edit.putString("Number: ", number);
+            edit.apply();
         }
     } // end of onActivityResult
 } // end of AddContactsActivity
