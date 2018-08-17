@@ -267,7 +267,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:gravity="center_horizontal"
-                android:text="Already an existing member? Login"
+                android:text="@string/existing_login"
                 android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>

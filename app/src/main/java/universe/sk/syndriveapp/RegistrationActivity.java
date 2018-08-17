@@ -26,7 +26,7 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button btn_register;
     private TextView tvExist;
     private FirebaseAuth firebaseAuth;
-    String name,email,password,bloodgrp,date;
+    String name, email, password, bloodgrp, date;
 //    String emname1,emname2,emname3;
 //    String emnum1,emnum2,emnum3;
 
@@ -78,7 +78,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 startActivity(new Intent(RegistrationActivity.this, MainActivity.class));
             }
         });
-    }
+    } // end of onCreate
 
 
     private void setupUIViews()

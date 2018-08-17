@@ -25,9 +25,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText etemail,etpassword;
+    private EditText etemail, etpassword;
     private Button btn;
-    private TextView tvRegister,tvForgotPassword;
+    private TextView tvRegister, tvForgotPassword;
     private FirebaseAuth firebaseAuth;
 
     private static final int REQUEST_PERMISSIONS = 1500;
@@ -44,12 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("LOGIN");
-
-        etemail = findViewById(R.id.etemail);
-        etpassword = findViewById(R.id.etpassword);
-        btn = findViewById(R.id.btn);
-        tvRegister =findViewById(R.id.tvRegister);
-        tvForgotPassword = findViewById(R.id.tvForgotPassword);
+        setupUIViews();
 
         if ((ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_PHONE_STATE)
                 !=PackageManager.PERMISSION_GRANTED)||
@@ -72,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-        if(user!=null)
+        if (user!=null)
         {
             finish();
             startActivity(new Intent(MainActivity.this, NavigationActivity.class));
@@ -107,6 +102,14 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, PasswordActivity.class));
             }
         });
+    } // end of onCreate
+
+    private void setupUIViews() {
+        etemail = findViewById(R.id.etemail);
+        etpassword = findViewById(R.id.etpassword);
+        btn = findViewById(R.id.btn);
+        tvRegister =findViewById(R.id.tvRegister);
+        tvForgotPassword = findViewById(R.id.tvForgotPassword);
     }
 
     private void valid(String email, String password)
@@ -128,6 +131,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-}
+} // end of MainActivity

@@ -25,8 +25,8 @@ public class PasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_password);
 
-        etForgotPassword = (EditText)findViewById(R.id.etForgotPassword);
-        btnPasswordReset = (Button)findViewById(R.id.btnPasswordReset);
+        etForgotPassword = findViewById(R.id.etForgotPassword);
+        btnPasswordReset = findViewById(R.id.btnPasswordReset);
         firebaseAuth = FirebaseAuth.getInstance();
 
         btnPasswordReset.setOnClickListener(new View.OnClickListener() {
@@ -45,7 +45,7 @@ public class PasswordActivity extends AppCompatActivity {
                             if(task.isSuccessful())
                             {
                                 Toast.makeText(PasswordActivity.this, "Password reset email sent!", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(PasswordActivity.this,MainActivity.class));
+                                startActivity(new Intent(PasswordActivity.this, MainActivity.class));
                             }
                             else
                             {
