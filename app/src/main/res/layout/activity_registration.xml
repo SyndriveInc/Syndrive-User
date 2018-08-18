@@ -3,15 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".RegistrationActivity">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="0dp">
+    <!--<ScrollView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_marginTop="0dp">-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,6 +36,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
+                    android:textColor="@color/white"
                     android:ems="10"
                     android:hint="@string/user_name"
                     android:inputType="textPersonName" />
@@ -55,6 +57,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
                     android:ems="10"
                     android:hint="@string/date_of_birth"
                     android:inputType="date" />
@@ -74,6 +77,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
                     android:ems="10"
                     android:hint="@string/blood_group"
                     android:inputType="text"
@@ -106,6 +110,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
                     android:ems="10"
                     android:hint="@string/email"
                     android:inputType="textEmailAddress" />
@@ -125,6 +130,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
                     android:ems="10"
                     android:hint="@string/password"
                     android:inputType="textPassword" />
@@ -144,6 +150,7 @@
                     android:layout_marginRight="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="10dp"
+                    android:textColor="@color/white"
                     android:ems="10"
                     android:hint="@string/confirm_password"
                     android:inputType="textPassword" />
@@ -266,9 +273,10 @@
                 android:layout_marginRight="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/fab_background"
                 android:gravity="center_horizontal"
                 android:text="@string/existing_login"
                 android:textSize="18sp" />
         </LinearLayout>
-    </ScrollView>
+    <!--</ScrollView>-->
 </RelativeLayout>
