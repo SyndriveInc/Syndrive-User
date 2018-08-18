@@ -118,12 +118,12 @@ public class RegistrationActivity extends AppCompatActivity {
 
         String confirmpass = etConfirmPassign.getText().toString();
 
-        if(name.isEmpty() || password.isEmpty() || email.isEmpty())
+        if (name.isEmpty() || password.isEmpty() || email.isEmpty())
         {
             Toast.makeText(this, "Please enter all the details!", Toast.LENGTH_SHORT).show();
         }
         else
-        {   if(password.equals(confirmpass))
+        {   if (password.equals(confirmpass))
             result = true;
         else
             Toast.makeText(this, "Confirm password doesn't match with your password!", Toast.LENGTH_SHORT).show();
