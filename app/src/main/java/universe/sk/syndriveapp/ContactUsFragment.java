@@ -39,6 +39,8 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
         // Required empty public constructor
     }
 
+    int PROXIMITY_RADIUS = 10000;//for nearby hospitals
+    double latitude, longitude;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -115,9 +117,43 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
        if(!firsttime)
        {
            LatLng point = new LatLng(location.getLatitude(), location.getLongitude());
+           latitude=location.getLatitude();
+           longitude=location.getLongitude();
            map.animateCamera(CameraUpdateFactory.newLatLngZoom(point,18));
            firsttime = true;
        }
 
     }
+
+    //nearby hospitals
+    public void onClick(View v)
+    {
+        if(v.getId() == R.id.btnHospitals)
+        {
+            map.clear();
+            String hospital= "hospital";
+            String url = getUrl(latitude, longitude, hospital);
+            Object dataTransfer[] = new Object[2];
+            dataTransfer[0] = map;
+            dataTransfer[1]= url;
+
+            GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
+            getNearbyPlacesData.execute(dataTransfer);
+            Toast.makeText(getActivity(), "Showing Nearby Hospitals", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    private String getUrl(double latitude, double longitude, String nearbyPlace)
+    {
+        StringBuilder googlePlaceUrl = new StringBuilder("https://maps.googleapis.com/maps/api/place/nearbysearch/json?");
+        googlePlaceUrl.append("location="+latitude+","+longitude);
+        googlePlaceUrl.append("&radius=" + PROXIMITY_RADIUS);
+        googlePlaceUrl.append("&type="+nearbyPlace);
+        googlePlaceUrl.append("&sensor=true");
+        googlePlaceUrl.append("&key="+"AIzaSyAwXCzIE9533_qHW8PdfWRamdVTqi6vrJg");
+
+        return  googlePlaceUrl.toString();
+    }
+
 }
