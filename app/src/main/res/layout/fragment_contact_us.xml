@@ -28,9 +28,9 @@
             android:layout_marginTop="0dp"
             android:clickable="true"
             android:focusable="true"
-            android:tint="@color/black"
+            android:tint="@color/white"
             app:backgroundTint="@color/red"
-            app:srcCompat="@drawable/ic_local_hospital_black" />
+            app:srcCompat="@drawable/local_hospital" />
     </RelativeLayout>
 
 
