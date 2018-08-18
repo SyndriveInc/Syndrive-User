@@ -11,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -30,7 +31,7 @@ import com.google.android.gms.location.LocationServices;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ContactUsFragment extends Fragment implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, LocationListener {
+public class ContactUsFragment extends Fragment implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, LocationListener, View.OnClickListener {
 
     GoogleMap map;
     GoogleApiClient googleApiClient;//for current location
@@ -48,6 +49,11 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_contact_us, container, false);
 
+        //nearby hospitals
+
+        Button btnHospitals = (Button) v.findViewById(R.id.btnHospitals);
+        btnHospitals.setOnClickListener(this);
+        //nearby hospitals
 
         return v;
     }
