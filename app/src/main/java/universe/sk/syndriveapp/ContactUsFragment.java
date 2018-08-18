@@ -6,6 +6,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -51,7 +52,8 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
 
         //nearby hospitals
 
-        Button btnHospitals = (Button) v.findViewById(R.id.btnHospitals);
+        //Button btnHospitals = (Button) v.findViewById(R.id.btnHospitals);
+        FloatingActionButton btnHospitals = v.findViewById(R.id.btnHospitals);
         btnHospitals.setOnClickListener(this);
         //nearby hospitals
 
