@@ -24,12 +24,9 @@ import java.util.ArrayList;
 public class AddContactsActivity extends AppCompatActivity {
 
     ListView lvContactList;
-    //String[] contactNames = { "Srividya", "Megha", "Suvarna" };
-    //String[] contactNumbers = { "+917736497532", "+918078906366" , "+919074976560" };
     ArrayList<Contact> contacts;
     //private static ContactAdapter adapter;
     private ContactAdapter adapter;
-    //FloatingActionButton fabAdd;
     Button btnRegister;
     //SharedPreferences contactDetails;
 
@@ -118,6 +115,7 @@ public class AddContactsActivity extends AppCompatActivity {
             cursor1.close();
 
             contacts.add(new Contact(name, number));
+            adapter.notifyDataSetChanged();
 
 //            edit.putString("Name: ", _name);
 //            edit.apply();
@@ -125,4 +123,5 @@ public class AddContactsActivity extends AppCompatActivity {
 //            edit.apply();
         }
     } // end of onActivityResult
+
 } // end of AddContactsActivity

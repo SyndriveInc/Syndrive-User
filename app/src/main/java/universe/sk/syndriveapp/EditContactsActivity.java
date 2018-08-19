@@ -98,6 +98,7 @@ public class EditContactsActivity extends AppCompatActivity {
             cursor1.close();
 
             contacts.add(new Contact(name, number));
+            adapter.notifyDataSetChanged();
 
 //            edit.putString("Name: ", _name);
 //            edit.apply();
