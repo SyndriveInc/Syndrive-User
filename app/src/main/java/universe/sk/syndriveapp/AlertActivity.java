@@ -60,7 +60,7 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 if (isDismissed || isSent) cancel();
                 else {
                     tvTime.setText("" + millisUntilFinished / 1000);
-                    if(millisUntilFinished/1000 > 5) tvTime.setTextColor(getResources().getColor(R.color.black));
+                    if (millisUntilFinished/1000 > 5) tvTime.setTextColor(getResources().getColor(R.color.black));
                     else tvTime.setTextColor(getResources().getColor(R.color.red));
                     pbCountdown.setProgress( (int) (millisInFuture - millisUntilFinished) );
 
