@@ -14,11 +14,14 @@ import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import java.util.Locale;
 
+import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
+
 public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     TextToSpeech tts;
     private TextView tvTime;
     private FloatingActionButton fabSend, fabDismiss;
+    MaterialProgressBar pbCountdown;
 
     private boolean isDismissed = false;
     private boolean isSent = false;
@@ -40,12 +43,17 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
         tvTime = findViewById(R.id.tvTime);
         fabSend = findViewById(R.id.fabSend);
         fabDismiss = findViewById(R.id.fabDismiss);
+        pbCountdown = findViewById(R.id.pbCountdown);
 
         fabDismiss.setEnabled(true);
         fabSend.setEnabled(true);
 
-        long millisInFuture = 20000; //20s
+        final long millisInFuture = 20000; //20s
         long countDownInterval = 1000; //1s
+
+        pbCountdown.setMax((int) millisInFuture);
+        //pbCountdown.setProgress((int) millisInFuture);
+
         new CountDownTimer(millisInFuture, countDownInterval) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -54,6 +62,8 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                     tvTime.setText("" + millisUntilFinished / 1000);
                     if(millisUntilFinished/1000 > 5) tvTime.setTextColor(getResources().getColor(R.color.black));
                     else tvTime.setTextColor(getResources().getColor(R.color.red));
+                    pbCountdown.setProgress( (int) (millisInFuture - millisUntilFinished) );
+
                     speakOut();
                 }
             }
@@ -64,7 +74,9 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 tvTime.setTextColor(getResources().getColor(R.color.green));
                 fabDismiss.setEnabled(false);
                 fabSend.setEnabled(false);
+                pbCountdown.setProgress((int) millisInFuture);
                 speakOut();
+
                 Intent mIntent = new Intent();
                 mIntent.setClass(AlertActivity.this, SendSMSActivity.class);
                 mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -81,7 +93,9 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 tvTime.setTextColor(getResources().getColor(R.color.green));
                 fabSend.setEnabled(false);
                 fabDismiss.setEnabled(false);
+                pbCountdown.setProgress((int) millisInFuture);
                 speakOut();
+
                 Intent mIntent = new Intent();
                 mIntent.setClass(AlertActivity.this, SendSMSActivity.class);
                 mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -98,6 +112,7 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 tvTime.setTextColor(getResources().getColor(R.color.black));
                 fabSend.setEnabled(false);
                 fabDismiss.setEnabled(false);
+                pbCountdown.setProgress(0);
 
                 speakOut();
             }
