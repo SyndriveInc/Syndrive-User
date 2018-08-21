@@ -24,6 +24,10 @@
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_power_settings_new_black"
             android:title="@string/nav_logout" />
+        <item
+            android:id="@+id/nav_googleLogout"
+            android:icon="@drawable/ic_power_settings_new_black"
+            android:title="Google Logout"/>
     </group>
 
     <item android:title="@string/communicate">

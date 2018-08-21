@@ -193,6 +193,9 @@ public class NavigationActivity extends AppCompatActivity
             FragmentManager manager = getSupportFragmentManager();
             manager.beginTransaction().replace(R.id.flMain, contactUsFragment).commit();
         }
+        else if (id == R.id.nav_googleLogout){
+            startActivity(new Intent(this,AccountActivity.class));
+        }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
