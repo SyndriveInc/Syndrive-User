@@ -1,6 +1,9 @@
 package universe.sk.syndriveapp;
 
+import android.Manifest;
+import android.app.Service;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -8,6 +11,8 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -24,7 +29,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GPSTracker  {
+public class GPSTracker{
 
     private static final long MIN_TIME = 0;
     private static final float MIN_DISTANCE = 0;
@@ -49,7 +54,13 @@ public class GPSTracker  {
         mContext = context;
         mLocationManager = (LocationManager) mContext.getSystemService(Context.LOCATION_SERVICE);
         if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(context, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
             return;
         }
         mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, mLocationListener);
@@ -67,7 +78,7 @@ public class GPSTracker  {
             findHospitalAddress(location);
 
             /*
-             * Code for calculating Speed
+             * Code for calculation Speed
 
             Point mPoint = new Point(location.getLongitude(), location.getLatitude(), System.currentTimeMillis());
             mPoints.add(mPoint);
@@ -109,14 +120,14 @@ public class GPSTracker  {
                 HttpURLConnection urlConnection = null;
                 try {
                     // Connect to Google API Services
-                    URL url = new URL("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + locationParm + "&radius=5000&types=hospital&key=AIzaSyDoijibOb-tuDkGfJu6D_fMG10h8A5Epyk");
+                    URL url = new URL("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + locationParm + "&radius=5000&types=hospital&key=AIzaSyAwXCzIE9533_qHW8PdfWRamdVTqi6vrJg");
                     urlConnection = (HttpURLConnection) url.openConnection();
                     urlConnection.connect();
 
                     // Get the data from the API
                     inputStream = urlConnection.getInputStream();
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                    StringBuilder stringBuffer = new StringBuilder();
+                    StringBuffer stringBuffer = new StringBuffer();
                     String line;
                     while ((line = bufferedReader.readLine()) != null) stringBuffer.append(line);
 
@@ -133,8 +144,11 @@ public class GPSTracker  {
 
                         hospitalAddresses.add(name + " at " + vicinity);
                     }
-                } catch (Exception ex) {}
+                } catch (Exception ex) {
+                }
             }
         }).start();
     }
+
 }
+//key=AIzaSyDoijibOb-tuDkGfJu6D_fMG10h8A5Epyk
