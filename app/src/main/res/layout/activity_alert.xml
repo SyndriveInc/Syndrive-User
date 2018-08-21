@@ -1,86 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AlertActivity">
 
-    <TextView
-        android:id="@+id/tvTime"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="106dp"
-        android:textSize="34sp"
-        android:text=""
-        android:textStyle="bold" />
+        android:layout_gravity="center_horizontal">
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabDismiss"
+        <me.zhanghai.android.materialprogressbar.MaterialProgressBar
+            android:id="@+id/pbCountdown"
+            style="@style/Widget.MaterialProgressBar.ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:minHeight="225dp"
+            android:minWidth="225dp"
+            app:mpb_progressTint="@color/colorPrimaryDark" />
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            tools:text="Time" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlFABs"
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/fabSend"
-        android:layout_marginEnd="84dp"
-        android:backgroundTint="@color/red"
-        android:clickable="true"
-        app:srcCompat="@drawable/dismiss" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabSend"
-        android:layout_width="61dp"
-        android:layout_height="61dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="177dp"
-        android:layout_marginStart="99dp"
-        android:backgroundTint="@color/green"
-        android:clickable="true"
-        app:srcCompat="@drawable/send" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:orientation="vertical">
-
+        android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="35dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/tvSendSOS"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/llFABs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignTop="@+id/tvDismiss"
-                android:layout_marginStart="79dp"
-                android:layout_weight="1"
-                android:text="@string/btn_send"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvDismiss"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="127dp"
-                android:layout_marginEnd="69dp"
-                android:layout_marginStart="30dp"
-                android:layout_weight="1"
-                android:text="@string/btn_dismiss"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                android:layout_margin="10dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/llFabSendSOS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fabSend"
+                        app:backgroundTint="@color/green"
+                        app:srcCompat="@drawable/send"
+                        android:layout_gravity="center_horizontal"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llFabDismiss"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <android.support.design.widget.FloatingActionButton
+                        android:id="@+id/fabDismiss"
+                        app:backgroundTint="@color/red"
+                        app:srcCompat="@drawable/dismiss"
+                        android:layout_gravity="center_horizontal"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
+    </RelativeLayout>
 
-    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/rlTVs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/llTVs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:baselineAligned="false"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:id="@+id/llTvSendSOS"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/btn_send"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/llTvDismiss"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:text="@string/btn_dismiss"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
 
-</RelativeLayout>
+</LinearLayout>

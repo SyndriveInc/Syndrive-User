@@ -19,19 +19,22 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.StorageReference;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 public class AddContactsActivity extends AppCompatActivity {
 
     ListView lvContactList;
-    //String[] contactNames = { "Srividya", "Megha", "Suvarna" };
-    //String[] contactNumbers = { "+917736497532", "+918078906366" , "+919074976560" };
     ArrayList<Contact> contacts;
     //private static ContactAdapter adapter;
     private ContactAdapter adapter;
-    //FloatingActionButton fabAdd;
     Button btnRegister;
-    //SharedPreferences contactDetails;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -58,6 +61,7 @@ public class AddContactsActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
 
         contacts = new ArrayList<>();
+        loadData();
 
 //        contacts.add(new Contact("Srividya", "+917736497532"));
 //        contacts.add(new Contact("Megha", "+918078906366"));
@@ -69,11 +73,57 @@ public class AddContactsActivity extends AppCompatActivity {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                saveData();
                 startActivity(new Intent(AddContactsActivity.this, NavigationActivity.class));
             }
         });
 
     } // end of onCreate
+
+    private void loadData() {
+        contacts.clear();
+
+        File file = getApplicationContext().getFileStreamPath("Contacts.txt");
+        String lineFromFile;
+
+        if (file.exists()) {
+            try {
+                BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput("Contacts.txt")));
+
+                while ( (lineFromFile=reader.readLine())!=null ) {
+                    StringTokenizer tokens = new StringTokenizer(lineFromFile, ": ");
+                    Contact contact = new Contact(tokens.nextToken(), tokens.nextToken());
+                    contacts.add(contact);
+                }
+
+                reader.close();
+            }
+            catch (IOException e) {
+                Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+    private void saveData() {
+        try {
+            FileOutputStream file = openFileOutput("Contact.txt", MODE_PRIVATE);
+            OutputStreamWriter outputFile = new OutputStreamWriter(file);
+            
+            for (int i=0; i<contacts.size(); i++) {
+                outputFile.write(contacts.get(i).getContactName() + ": " + contacts.get(i).getContactNumber() + "\n");
+            }
+            
+            outputFile.flush();
+            outputFile.close();
+
+            Toast.makeText(this, "Successfuly saved!", Toast.LENGTH_SHORT).show();
+        }
+        catch (IOException e) {
+            Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void removeContactData() {
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -102,7 +152,6 @@ public class AddContactsActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_CONTACTS && resultCode == RESULT_OK) {
-            //SharedPreferences.Editor edit = contactDetails.edit();
             Uri uri = data.getData();
             String names[] = {ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME};
             Cursor cursor = getContentResolver().query(uri, names, null, null, null);
@@ -118,11 +167,9 @@ public class AddContactsActivity extends AppCompatActivity {
             cursor1.close();
 
             contacts.add(new Contact(name, number));
+            adapter.notifyDataSetChanged();
 
-//            edit.putString("Name: ", _name);
-//            edit.apply();
-//            edit.putString("Number: ", _number);
-//            edit.apply();
         }
     } // end of onActivityResult
+
 } // end of AddContactsActivity

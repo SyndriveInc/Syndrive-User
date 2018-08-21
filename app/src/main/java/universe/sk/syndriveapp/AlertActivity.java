@@ -14,14 +14,19 @@ import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import java.util.Locale;
 
+import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
+
 public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
 
     TextToSpeech tts;
     private TextView tvTime;
     private FloatingActionButton fabSend, fabDismiss;
+    MaterialProgressBar pbCountdown;
 
     private boolean isDismissed = false;
     private boolean isSent = false;
+    private boolean isRunning = true;
+    private long millisLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,20 +45,31 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
         tvTime = findViewById(R.id.tvTime);
         fabSend = findViewById(R.id.fabSend);
         fabDismiss = findViewById(R.id.fabDismiss);
+        pbCountdown = findViewById(R.id.pbCountdown);
 
         fabDismiss.setEnabled(true);
         fabSend.setEnabled(true);
 
-        long millisInFuture = 20000; //20s
+        final long millisInFuture = 20000; //20s
         long countDownInterval = 1000; //1s
+
+        pbCountdown.setMax((int) millisInFuture);
+        //pbCountdown.setProgress((int) millisInFuture);
+
         new CountDownTimer(millisInFuture, countDownInterval) {
             @Override
             public void onTick(long millisUntilFinished) {
                 if (isDismissed || isSent) cancel();
                 else {
                     tvTime.setText("" + millisUntilFinished / 1000);
-                    if(millisUntilFinished/1000 > 5) tvTime.setTextColor(getResources().getColor(R.color.black));
-                    else tvTime.setTextColor(getResources().getColor(R.color.red));
+                    millisLeft = millisUntilFinished;
+
+                    if (millisUntilFinished/1000 > 5)
+                        tvTime.setTextColor(getResources().getColor(R.color.black));
+                    else
+                        tvTime.setTextColor(getResources().getColor(R.color.red));
+
+                    pbCountdown.setProgress( (int) (millisInFuture - millisUntilFinished) );
                     speakOut();
                 }
             }
@@ -64,46 +80,70 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 tvTime.setTextColor(getResources().getColor(R.color.green));
                 fabDismiss.setEnabled(false);
                 fabSend.setEnabled(false);
+                isRunning = false;
+                pbCountdown.setProgress((int) millisInFuture);
                 speakOut();
+
                 Intent mIntent = new Intent();
                 mIntent.setClass(AlertActivity.this, SendSMSActivity.class);
                 mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(mIntent);
                 //startActivity(new Intent(AlertActivity.this,NavigationActivity.class));
             }
-        }.start();
+        }.start(); // end of CountDownTimer
 
         fabSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isSent = true;
+                isRunning = false;
                 tvTime.setText(R.string.tv_sent);
                 tvTime.setTextColor(getResources().getColor(R.color.green));
                 fabSend.setEnabled(false);
                 fabDismiss.setEnabled(false);
+                pbCountdown.setProgress((int) millisInFuture);
                 speakOut();
+
                 Intent mIntent = new Intent();
                 mIntent.setClass(AlertActivity.this, SendSMSActivity.class);
                 mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(mIntent);
                 //startActivity(new Intent(AlertActivity.this,NavigationActivity.class));
             }
-        }); //end of Send button
+        }); //end of fabSend
 
         fabDismiss.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 isDismissed = true;
+                isRunning = false;
                 tvTime.setText(R.string.tv_dismissed);
                 tvTime.setTextColor(getResources().getColor(R.color.black));
                 fabSend.setEnabled(false);
                 fabDismiss.setEnabled(false);
+                pbCountdown.setProgress(0);
 
                 speakOut();
             }
-        }); //end of Dismiss button
+        }); //end of fabDismiss
 
     } // end of onCreate
+
+//    @Override
+//    protected void onSaveInstanceState(Bundle outState) {
+//        super.onSaveInstanceState(outState);
+//
+//        outState.putLong("millisLeft", millisLeft);
+//        outState.putBoolean("isRunning", isRunning);
+//    } // end of onSaveInstanceState
+//
+//    @Override
+//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+//        super.onRestoreInstanceState(savedInstanceState);
+//
+//        millisLeft = savedInstanceState.getLong("millisLeft");
+//        isRunning = savedInstanceState.getBoolean("isRunning");
+//    }
 
     private void speakOut() {
         String text = tvTime.getText().toString().trim();
@@ -134,4 +174,4 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
             Log.e("TTS", "Initialization failed!");
         }
     }
-}
+} // end of AlertActivity
