@@ -161,6 +161,43 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
         }
     } // end of onRestoreInstanceState
 
+    /* @Override
+    protected void onStop() {
+        super.onStop();
+
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        editor.putLong("millisLeft", timeLeftInMillis);
+        editor.putBoolean("isRunning", isRunning);
+        editor.putLong("endTime", endTime);
+
+        editor.apply();
+    } // end of onStop
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+
+        timeLeftInMillis = prefs.getLong("millisLeft", millisInFuture);
+        isRunning = prefs.getBoolean("isRunning", true);
+
+        if (isRunning) {
+            endTime = prefs.getLong("endTime", 0);
+            timeLeftInMillis = endTime - System.currentTimeMillis();
+
+            if (timeLeftInMillis < 0) {
+                timeLeftInMillis = 0;
+                isRunning = false;
+            }
+            else {
+                startTimer();
+            }
+        }
+    } // end of onStart */
+
     private void speakOut() {
         String text = tvTime.getText().toString().trim();
         tts.speak(text, TextToSpeech.QUEUE_FLUSH, null);
