@@ -13,7 +13,6 @@ import android.widget.TextView;
 import android.os.CountDownTimer;
 import android.support.design.widget.FloatingActionButton;
 import java.util.Locale;
-
 import me.zhanghai.android.materialprogressbar.MaterialProgressBar;
 
 public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnInitListener {
@@ -22,11 +21,15 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
     private TextView tvTime;
     private FloatingActionButton fabSend, fabDismiss;
     MaterialProgressBar pbCountdown;
+    private CountDownTimer countDownTimer;
 
     private boolean isDismissed = false;
     private boolean isSent = false;
     private boolean isRunning = true;
-    private long millisLeft;
+    private long millisInFuture;
+    private long timeLeftInMillis;
+    private long endTime;
+    private long countDownInterval = 1000; //1s
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +53,27 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
         fabDismiss.setEnabled(true);
         fabSend.setEnabled(true);
 
-        final long millisInFuture = 20000; //20s
-        long countDownInterval = 1000; //1s
+        millisInFuture = 20000; //20s
+        timeLeftInMillis = millisInFuture;
 
+        startTimer();
+
+    } // end of onCreate
+
+    private void startTimer() {
+        endTime = System.currentTimeMillis() + timeLeftInMillis;
         pbCountdown.setMax((int) millisInFuture);
+//        isRunning = true;
         //pbCountdown.setProgress((int) millisInFuture);
 
-        new CountDownTimer(millisInFuture, countDownInterval) {
+        countDownTimer = new CountDownTimer(timeLeftInMillis, countDownInterval) {
             @Override
             public void onTick(long millisUntilFinished) {
-                if (isDismissed || isSent) cancel();
+                timeLeftInMillis = millisUntilFinished;
+                if (isDismissed || isSent || !isRunning) cancel();
                 else {
                     tvTime.setText("" + millisUntilFinished / 1000);
-                    millisLeft = millisUntilFinished;
+                    timeLeftInMillis = millisUntilFinished;
 
                     if (millisUntilFinished/1000 > 5)
                         tvTime.setTextColor(getResources().getColor(R.color.black));
@@ -76,11 +87,11 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
 
             @Override
             public void onFinish() {
+                isRunning = false;
                 tvTime.setText(R.string.tv_sent);
                 tvTime.setTextColor(getResources().getColor(R.color.green));
                 fabDismiss.setEnabled(false);
                 fabSend.setEnabled(false);
-                isRunning = false;
                 pbCountdown.setProgress((int) millisInFuture);
                 speakOut();
 
@@ -88,7 +99,6 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 mIntent.setClass(AlertActivity.this, SendSMSActivity.class);
                 mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(mIntent);
-                //startActivity(new Intent(AlertActivity.this,NavigationActivity.class));
             }
         }.start(); // end of CountDownTimer
 
@@ -108,7 +118,6 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 mIntent.setClass(AlertActivity.this, SendSMSActivity.class);
                 mIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(mIntent);
-                //startActivity(new Intent(AlertActivity.this,NavigationActivity.class));
             }
         }); //end of fabSend
 
@@ -122,28 +131,35 @@ public class AlertActivity extends AppCompatActivity implements TextToSpeech.OnI
                 fabSend.setEnabled(false);
                 fabDismiss.setEnabled(false);
                 pbCountdown.setProgress(0);
-
                 speakOut();
+
+                startActivity(new Intent(AlertActivity.this, NavigationActivity.class));
             }
         }); //end of fabDismiss
+    } // end of startTimer
 
-    } // end of onCreate
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
-//    @Override
-//    protected void onSaveInstanceState(Bundle outState) {
-//        super.onSaveInstanceState(outState);
-//
-//        outState.putLong("millisLeft", millisLeft);
-//        outState.putBoolean("isRunning", isRunning);
-//    } // end of onSaveInstanceState
-//
-//    @Override
-//    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-//        super.onRestoreInstanceState(savedInstanceState);
-//
-//        millisLeft = savedInstanceState.getLong("millisLeft");
-//        isRunning = savedInstanceState.getBoolean("isRunning");
-//    }
+        outState.putLong("millisLeft", timeLeftInMillis);
+        outState.putBoolean("isRunning", isRunning);
+        outState.putLong("endTime", endTime);
+    } // end of onSaveInstanceState
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        timeLeftInMillis = savedInstanceState.getLong("millisLeft");
+        isRunning = savedInstanceState.getBoolean("isRunning");
+
+        if (isRunning) {
+            endTime = savedInstanceState.getLong("endTime");
+            timeLeftInMillis = endTime - System.currentTimeMillis();
+            startTimer();
+        }
+    } // end of onRestoreInstanceState
 
     private void speakOut() {
         String text = tvTime.getText().toString().trim();
