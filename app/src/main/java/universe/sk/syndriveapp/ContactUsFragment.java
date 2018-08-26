@@ -1,6 +1,7 @@
 package universe.sk.syndriveapp;
 
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -57,6 +58,9 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
         btnHospitals.setOnClickListener(this);
         //nearby hospitals
 
+        FloatingActionButton fabDonateBlood = v.findViewById(R.id.fabDonateBlood);
+        fabDonateBlood.setOnClickListener(this);
+
         return v;
     }
 
@@ -80,7 +84,7 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
         map.setMyLocationEnabled(true);
         //zoom
         Location loc = map.getMyLocation();
-        if(loc != null){
+        if (loc != null){
             LatLng point = new LatLng(loc.getLatitude() , loc.getLongitude());
             map.animateCamera(CameraUpdateFactory.newLatLngZoom(point,18));
         }
@@ -122,7 +126,7 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
     @Override
     public void onLocationChanged(Location location) {
         //zoom
-       if(!firsttime)
+       if (!firsttime)
        {
            LatLng point = new LatLng(location.getLatitude(), location.getLongitude());
            latitude=location.getLatitude();
@@ -136,7 +140,7 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
     //nearby hospitals
     public void onClick(View v)
     {
-        if(v.getId() == R.id.btnHospitals)
+        if (v.getId() == R.id.btnHospitals)
         {
             map.clear();
             String hospital= "hospital";
@@ -148,6 +152,10 @@ public class ContactUsFragment extends Fragment implements OnMapReadyCallback, G
             GetNearbyPlacesData getNearbyPlacesData = new GetNearbyPlacesData();
             getNearbyPlacesData.execute(dataTransfer);
             Toast.makeText(getActivity(), "Showing Nearby Hospitals", Toast.LENGTH_SHORT).show();
+        }
+        else if (v.getId() == R.id.fabDonateBlood)
+        {
+            startActivity(new Intent(getActivity(), BloodDonationActivity.class));
         }
 
     }
