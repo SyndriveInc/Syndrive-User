@@ -71,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null){
+                    Log.d(TAG, "Opening Navigation Activity");
                     startActivity(new Intent(MainActivity.this,NavigationActivity.class));
                 }
             }

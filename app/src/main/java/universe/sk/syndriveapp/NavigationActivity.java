@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -87,9 +88,18 @@ public class NavigationActivity extends AppCompatActivity
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 Userinfo userinfo;
                 userinfo = dataSnapshot.getValue(Userinfo.class);
-
-                tvNavName.setText(userinfo.getUsername().trim());
-                tvNavEmail.setText(userinfo.getUemail().trim());
+                if(userinfo == null)
+                {FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        // Name, email address, and profile photo Url
+                        String name = user.getDisplayName();
+                        tvNavName.setText(name);
+                        String email = user.getEmail();
+                        tvNavEmail.setText(email);
+                    }}
+               else
+                {tvNavName.setText(userinfo.getUsername().trim());
+                tvNavEmail.setText(userinfo.getUemail().trim());}
             }
 
             @Override
