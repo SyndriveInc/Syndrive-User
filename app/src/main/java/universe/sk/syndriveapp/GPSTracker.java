@@ -17,6 +17,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -41,8 +43,8 @@ public class GPSTracker{
     private String currentAddress;
     private List<String> hospitalAddresses;
 
-    private List<Point> mPoints;
-    private List<String> items;
+//    private List<Point> mPoints;
+//    private List<String> items;
 
     public String getCurrentAddress() {
         return currentAddress;
@@ -66,7 +68,7 @@ public class GPSTracker{
         mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, MIN_TIME, MIN_DISTANCE, mLocationListener);
         mGeocoder = new Geocoder(mContext);    // Object to get address using coordinates
 
-        mPoints = new ArrayList<>();
+//        mPoints = new ArrayList<>();
         hospitalAddresses = new ArrayList<>();
     }
 

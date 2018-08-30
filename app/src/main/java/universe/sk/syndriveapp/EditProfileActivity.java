@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -76,10 +77,22 @@ public class EditProfileActivity extends AppCompatActivity {
                 Userinfo userinfo;
                 userinfo = dataSnapshot.getValue(Userinfo.class);
 
-                etName.setText(userinfo.getUsername());
-                etBloodGroup.setText(userinfo.getBloodgroup());
-                etDOB.setText(userinfo.getUdate());
-                etEmail.setText(userinfo.getUemail());
+                if(userinfo == null)
+                {FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                    if (user != null) {
+                        // Name, email address, and profile photo Url
+                        String name = user.getDisplayName();
+                        etName.setText(name);
+                        String email = user.getEmail();
+                        etEmail.setText(email);
+                        etDOB.setText("Unknown");
+                        etBloodGroup.setText("Unknown");
+                    }}
+                    else {
+                    etName.setText(userinfo.getUsername());
+                    etBloodGroup.setText(userinfo.getBloodgroup());
+                    etDOB.setText(userinfo.getUdate());
+                    etEmail.setText(userinfo.getUemail());}
 //                etName1.setText(userinfo.getCname1());
 //                etName2.setText(userinfo.getCname2());
 //                etName3.setText(userinfo.getCname3());
